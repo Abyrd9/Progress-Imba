@@ -1,11 +1,12 @@
 import React, {Component} from 'react';
+import Wrapper from './styled';
 
 class Base extends Component {
-    render() {
-        return (
-            <div className="base">
-                React-Redux-Boilerplate
-            </div>
-        )
-    }
+	render() {
+		return (
+			<div>Sorry</div>
+		)
+	}
 }
+
+export default Base;
