@@ -9,6 +9,7 @@ const SubgoalWrapper = styled.div`
 		padding: 20px;
 		box-sizing: border-box;
 		margin-top: 10px;
+		margin-bottom: 20px;
 		
 		/* Positioning */
     display: flex;

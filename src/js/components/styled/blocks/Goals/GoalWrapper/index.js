@@ -8,6 +8,7 @@ const GoalWrapper = styled.div`
 		width: 100%;
 		padding: 20px;
 		box-sizing: border-box;
+		margin-bottom: 20px;
 		
 		/* Positioning */
     display: flex;

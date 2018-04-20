@@ -15,7 +15,6 @@ const Creator = styled.input`
 		box-sizing: border-box;
 		padding: 13px 18px;
 		border: dashed 5px ${Colors.PurpleDark};
-		margin-top: 20px;
 
 		/* Font */
 		${Font}

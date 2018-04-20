@@ -15,7 +15,6 @@ const Creator = styled.input`
 		box-sizing: border-box;
 		padding: 15px 20px;
 		border: dashed 6px ${Colors.Tan};
-		margin-top: 20px;
 
 		/* Font */
 		${Font}
