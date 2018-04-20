@@ -1,16 +1,21 @@
 import React, { Component } from "react";
 import Base from "./components/base";
 
-import GoalBlock from './components/styled/blocks/GoalBlock';
-import GoalWrapper from './components/styled/blocks/GoalWrapper';
-import Goal from './components/styled/blocks/GoalItem';
-import SubgoalBlock from './components/styled/blocks/SubgoalBlock';
-import SubgoalWrapper from './components/styled/blocks/SubgoalWrapper';
-import Subgoal from './components/styled/blocks/Subgoal';
-import TaskBlock from './components/styled/blocks/TaskBlock';
-import TaskWrapper from './components/styled/blocks/TaskWrapper';
-import Task from './components/styled/blocks/Task';
-
+import {
+	GoalBlock,
+	GoalWrapper,
+	Goal
+} from './components/styled/blocks/Goals';
+import {
+	SubgoalBlock,
+	SubgoalWrapper,
+	Subgoal
+} from './components/styled/blocks/Subgoals';
+import {
+	TaskBlock,
+	TaskWrapper,
+	Task
+} from './components/styled/blocks/Tasks';
 
 class App extends Component {
 	render() {
