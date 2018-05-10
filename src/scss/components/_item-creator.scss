@@ -1,0 +1,20 @@
+.creator {
+	all: unset;
+	box-sizing: border-box;
+	text-transform: uppercase;
+	padding: 15px;
+	width: 100%;
+	&::placeholder {
+		text-transform: uppercase;
+	}
+}
+
+.goal-creator {
+	@include font(900, 32px);
+	color: $color-tan;
+	border: dashed 5px $color-tan;
+	&::placeholder {
+		@include font(900, 32px);
+		color: $color-tan;
+	}
+}

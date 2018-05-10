@@ -8,7 +8,7 @@ class App extends Component {
         return (
             <div className='global-container'>
 							<Block type="goal">
-								<ItemCreator placeholder="Create a goal..." />
+								<ItemCreator placeholder="Create a goal..." type="goal"/>
 							</Block>
             </div>
         )
