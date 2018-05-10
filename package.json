@@ -1,39 +1,46 @@
 {
   "name": "Progress",
   "version": "1.0.0",
-  "description": "Application for maintaining life goals and tasks.",
+  "description": "ToDoList App",
   "main": "index.js",
-  "author": "Andrew Byrd",
-  "license": "MIT",
   "scripts": {
-    "build": "webpack",
-    "dev": "concurrently \"webpack --watch\" \"webpack-dev-server\" "
+    "start:dev": "webpack-dev-server --mode development --config config/webpack.base.config.js --open --hot --history-api-fallback",
+    "prestart:prod": "webpack --mode production --config config/webpack.prod.config.js --env.NODE_ENV=production --progress",
+    "start:prod": "node server"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Abyrd9/React-Webpack-Boilerplate.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Abyrd9/React-Webpack-Boilerplate/issues"
+  },
+  "homepage": "https://github.com/Abyrd9/React-Webpack-Boilerplate#readme",
   "devDependencies": {
-    "babel-core": "^6.26.0",
-    "babel-eslint": "^8.2.2",
-    "babel-loader": "^7.1.2",
-    "babel-plugin-transform-class-properties": "^6.24.1",
-    "babel-plugin-transform-flow-strip-types": "^6.22.0",
-    "babel-preset-es2015": "^6.24.1",
-    "babel-preset-react": "^6.24.1",
-    "babel-preset-stage-0": "^6.24.1",
-    "babel-preset-stage-2": "^6.24.1",
-    "concurrently": "^3.5.1",
-    "eslint": "^4.19.1",
-    "eslint-config-airbnb": "^16.1.0",
-    "eslint-loader": "^2.0.0",
-    "eslint-plugin-import": "^2.10.0",
-    "eslint-plugin-jsx-a11y": "^6.0.3",
-    "eslint-plugin-react": "^7.7.0",
-    "webpack": "^3.8.1",
-    "webpack-cli": "^2.0.14",
-    "webpack-dev-server": "^2.11.1"
+    "@babel/core": "^7.0.0-beta.46",
+    "@babel/preset-env": "^7.0.0-beta.46",
+    "@babel/preset-react": "^7.0.0-beta.46",
+    "@babel/preset-stage-2": "^7.0.0-beta.46",
+    "babel-loader": "^8.0.0-beta.2",
+    "css-loader": "^0.28.11",
+    "extract-text-webpack-plugin": "^4.0.0-beta.0",
+    "html-webpack-plugin": "^3.2.0",
+    "node-sass": "^4.9.0",
+    "optimize-css-assets-webpack-plugin": "^4.0.1",
+    "sass-loader": "^7.0.1",
+    "style-loader": "^0.21.0",
+    "uglifyjs-webpack-plugin": "^1.2.5",
+    "webpack": "^4.8.1",
+    "webpack-cli": "^2.1.3",
+    "webpack-dev-server": "^3.1.4",
+    "webpack-merge": "^4.1.2"
   },
   "dependencies": {
-    "path": "^0.12.7",
-    "react": "^16.3.0",
-    "react-dom": "^16.3.0",
-    "styled-components": "^3.2.5"
+    "express": "^4.16.3",
+    "react": "^16.3.2",
+    "react-dom": "^16.3.2"
   }
 }

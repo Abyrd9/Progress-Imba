@@ -1,8 +1,10 @@
-# See https://help.github.com/ignore-files/ for more about ignoring files.
+# Don't check auto-generated stuff into git
+coverage
+build
+node_modules
+stats.json
 
-# dependencies
-/node_modules
-/.eslintrc.json
-yarn.lock
-package-lock.json
-.vscode
+# Cruft
+.DS_Store
+npm-debug.log
+.idea

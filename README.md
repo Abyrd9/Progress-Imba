@@ -1,2 +1,2 @@
-# Progress
-Application for maintaining life goals and tasks.
+# React-Webpack-Boilerplate
+React and Webpack Boilerplate w/ Sass
