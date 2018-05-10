@@ -1,0 +1,50 @@
+.item {
+	box-sizing: border-box;
+	padding: 20px 10px;
+	width: 100%;
+	display: grid;
+	grid-template-columns: 50px auto 50px 50px;
+	&__icon {
+		align-self: center;
+		justify-self: center;
+	}
+	&__input {
+		all: unset;
+		text-transform: uppercase;
+	}
+}
+
+.goal-item {
+	&__input {
+		@include font(900, 32px);
+		color: $color-white;
+	}
+	&__icon {
+		color: $color-white;
+		font-size: 20px;
+		&--hamburger {
+			font-size: 24px;
+		}
+		&--check {
+			height: 33px;
+			width: 35px;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			padding-top: 2px;
+			border-radius: 100%;
+			background-color: $color-white;
+			color: $color-purple;
+		}
+		&--chevron {
+			height: 35px;
+			width: 35px;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			border-radius: 100%;
+			background-color: $color-white;
+			color: $color-purple;
+		}
+	}
+}
