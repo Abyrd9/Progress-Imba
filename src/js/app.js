@@ -1,11 +1,12 @@
 import React, {Component} from 'react';
 
+import Block from './components/common/Block';
+
 class App extends Component {
     render() {
         return (
             <div className='global-container'>
-                React Boilerplate
-								<i className="fab fa-accessible-icon"></i>
+							<Block type="goal" />
             </div>
         )
     }
