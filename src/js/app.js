@@ -5,6 +5,7 @@ class App extends Component {
         return (
             <div className='global-container'>
                 React Boilerplate
+								<i className="fab fa-accessible-icon"></i>
             </div>
         )
     }
