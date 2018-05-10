@@ -1,0 +1,7 @@
+.block {
+	width: 80%;
+	padding: 20px;
+	margin: 20px;
+	@include shadow(3);
+	background-color: $color-white;
+}
