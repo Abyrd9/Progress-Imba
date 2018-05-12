@@ -1,10 +1,12 @@
 import React from 'react';
+import AutoSizeInput from '../../util/AutoSizeInput';
 
 const ItemCreator = props => {
 	const { type, onChange, onKeyPress, value, placeholder } = props;
 	return (
-		<input
-			className={`${type}-creator creator`}
+		<AutoSizeInput
+			className="creator"
+			type={type}
 			onChange={onChange}
 			onKeyPress={onKeyPress}
 			value={value}

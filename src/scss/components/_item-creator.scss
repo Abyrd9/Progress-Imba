@@ -1,9 +1,11 @@
 .creator {
-	all: unset;
+	background-color: transparent;
 	box-sizing: border-box;
 	text-transform: uppercase;
 	padding: 15px;
 	width: 100%;
+	overflow: hidden;
+	resize: none;
 	&::placeholder {
 		text-transform: uppercase;
 	}
@@ -13,8 +15,19 @@
 	@include font(900, 32px);
 	color: $color-tan;
 	border: dashed 5px $color-tan;
+	overflow: hidden;
 	&::placeholder {
 		@include font(900, 32px);
 		color: $color-tan;
 	}
+}
+
+.ghost {
+	opacity: 0.3;
+  display: block;
+  white-space: pre-wrap;
+  word-wrap: break-word;  
+  visibility: hidden;
+  position: absolute;
+	top: 0;
 }
