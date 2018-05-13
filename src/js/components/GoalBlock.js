@@ -9,11 +9,18 @@ class GoalBlock extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			creatorValue: ''
+			creatorValue: '',
+			activeGoals: [],
+			completedGoals: [],
 		}
 	}
 
 	render() {
+		const cleanUpText = e => {
+			const newText = e.target.value.replace(/\n/g, '');
+			this.setState({ creatorValue: newText })
+		}
+
 		return (
 			<Block type="goal">
 				<Container type="goal">
@@ -23,7 +30,7 @@ class GoalBlock extends Component {
 					placeholder="Create a goal..."
 					type="goal"
 					value={this.state.creatorValue}
-					onChange={e => this.setState({ creatorValue: e.target.value })}
+					onChange={e => cleanUpText(e)}
 				/>
 			</Block>
 		)
