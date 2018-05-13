@@ -1,13 +1,11 @@
 import React, { Component } from 'react';
 import { isAbsolute } from 'path';
 
-const DEFAULT_HEIGHT = 72;
-
 class AutoSizeInput extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			height: DEFAULT_HEIGHT,
+			height: 'auto',
 		}
 		this.setFilledTextareaHeight = this.setFilledTextareaHeight.bind(this);
 	}
@@ -15,13 +13,15 @@ class AutoSizeInput extends Component {
 
 	componentDidMount() {
 		this.mounted = true;
-		this.setFilledTextareaHeight();
+		const { defaultHeight } = this.props;
+		this.setFilledTextareaHeight(defaultHeight);
 	}
 
-  setFilledTextareaHeight() {
+  setFilledTextareaHeight(defaultHeight) {
     if (this.mounted) {
-      const element = this.ghost;
-			const height = element.clientHeight > DEFAULT_HEIGHT ? element.clientHeight : DEFAULT_HEIGHT;
+			const element = this.ghost;
+			console.log(defaultHeight)
+			const height = element.clientHeight > defaultHeight ? element.clientHeight + 10 : defaultHeight;
       this.setState({
         height,
       });
@@ -29,9 +29,9 @@ class AutoSizeInput extends Component {
 	}
 	
 	getExpandableField(props) {
-    const isOneLine = this.state.height <= DEFAULT_HEIGHT;
+    const isOneLine = this.state.height <= props.defaultHeight;
     const { height } = this.state;
-
+		console.log(height);
 		const {
 			className,
 			value,
@@ -40,11 +40,9 @@ class AutoSizeInput extends Component {
 			onChange
 		} = props;
 
-		const classModifier = type ? `${type}-${className}` : '';
-
     return (
         <textarea
-          className={`${classModifier} creator`}
+          className={`${type}-${className} ${className}`}
           name="textarea"
 					value={value}
 					placeholder={placeholder}
@@ -53,7 +51,7 @@ class AutoSizeInput extends Component {
             resize: isOneLine ? "none" : null
           }}
           onChange={onChange}
-          onKeyUp={this.setFilledTextareaHeight}
+          onKeyUp={(e) => {if (e.keyCode === 13) {e.stopPropagation()} else {this.setFilledTextareaHeight(props.defaultHeight)} }}
         />
     );
 	}
@@ -65,11 +63,9 @@ class AutoSizeInput extends Component {
 			type
 		} = props
 
-		const classModifier = type ? `${type}-${className}` : '';
-
     return (
       <div
-        className={`${classModifier} creator ghost`}
+        className={`${type}-${className} ${className} ghost`}
         ref={(c) => this.ghost = c}
         aria-hidden="true"
       >

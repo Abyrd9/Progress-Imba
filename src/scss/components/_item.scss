@@ -8,14 +8,23 @@
 		align-self: center;
 		justify-self: center;
 	}
-	&__input {
-		all: unset;
+	.input {
+		background-color: transparent;
+		box-sizing: border-box;
 		text-transform: uppercase;
+		width: 100%;
+		overflow: hidden;
+		&:focus {
+			outline: none;
+		}
+		&::placeholder {
+			text-transform: uppercase;
+		}
 	}
 }
 
 .goal-item {
-	&__input {
+	.goal-input {
 		@include font(900, 32px);
 		color: $color-white;
 	}

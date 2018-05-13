@@ -1,4 +1,5 @@
 import React from 'react';
+import AutoSizeInput from '../../util/AutoSizeInput';
 
 const Item = props => {
 	const {
@@ -10,8 +11,10 @@ const Item = props => {
 	return (
 		<div className={`${type}-item item`}>
 			<i className={`fas fa-bars ${type}-item__icon ${type}-item__icon--hamburger item__icon`}></i>
-			<input
-				className={`${type}-item__input item__input`}
+			<AutoSizeInput
+				defaultHeight={42}
+				className="input"
+				type={type}
 				onChange={onChange}
 				onKeyPress={onKeyPress}
 				value={value}

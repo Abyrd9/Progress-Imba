@@ -6,6 +6,10 @@
 	width: 100%;
 	overflow: hidden;
 	resize: none;
+	vertical-align: middle;
+	&:focus {
+		outline: none;
+	}
 	&::placeholder {
 		text-transform: uppercase;
 	}
@@ -15,7 +19,6 @@
 	@include font(900, 32px);
 	color: $color-tan;
 	border: dashed 5px $color-tan;
-	overflow: hidden;
 	&::placeholder {
 		@include font(900, 32px);
 		color: $color-tan;
