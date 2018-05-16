@@ -2,10 +2,11 @@ import React from 'react';
 import AutoSizeInput from '../../util/AutoSizeInput';
 
 const ItemCreator = props => {
-	const { type, onChange, onKeyPress, value, placeholder } = props;
+	const { type, defaultHeight, onChange, onKeyPress, value, placeholder } = props;
+
 	return (
 		<AutoSizeInput
-			defaultHeight={72}
+			defaultHeight={defaultHeight}
 			className="creator"
 			type={type}
 			onChange={onChange}

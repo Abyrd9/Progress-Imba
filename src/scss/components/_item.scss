@@ -1,14 +1,15 @@
 .item {
 	box-sizing: border-box;
-	padding: 20px 10px;
+	padding: 20px 0px;
 	width: 100%;
 	display: grid;
-	grid-template-columns: 50px auto 50px 50px;
+	grid-template-columns: 35px auto 50px 50px;
 	&__icon {
-		align-self: center;
-		justify-self: center;
+		align-self: flex-start;
+		justify-self: flex-end;
 	}
 	.input {
+		border: none;
 		background-color: transparent;
 		box-sizing: border-box;
 		text-transform: uppercase;
@@ -32,7 +33,9 @@
 		color: $color-white;
 		font-size: 20px;
 		&--hamburger {
+			justify-self: flex-start;
 			font-size: 24px;
+			margin-top: 6px;
 		}
 		&--check {
 			height: 33px;

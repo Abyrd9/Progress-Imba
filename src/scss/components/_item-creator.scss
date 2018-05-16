@@ -25,6 +25,17 @@
 	}
 }
 
+.subgoal-creator {
+	padding: 10px;
+	@include font(900, 28px);
+	color: $color-purple-dark;
+	border: dashed 4px $color-purple-dark;
+	&::placeholder {
+		@include font(900, 28px);
+		color: $color-purple-dark;
+	}
+}
+
 .ghost {
 	opacity: 0.3;
   display: block;
