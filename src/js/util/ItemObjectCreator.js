@@ -7,6 +7,7 @@ export const ItemObjectCreator = (type, value, key, subkey, taskkey) => {
 						value,
 						isOpen: false,
 						isComplete: false,
+						modalVisible: false,
 					}
 					break;
 			case "subgoal":
@@ -17,6 +18,7 @@ export const ItemObjectCreator = (type, value, key, subkey, taskkey) => {
 						value,
 						isOpen: false,
 						isComplete: false,
+						modalVisible: false,
 					}
 					break;
 			case "task":
@@ -28,6 +30,7 @@ export const ItemObjectCreator = (type, value, key, subkey, taskkey) => {
 						value,
 						isOpen: false,
 						isComplete: false,
+						modalVisible: false,
 					}
 					break;
 			default: 

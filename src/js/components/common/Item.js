@@ -9,7 +9,7 @@ const Item = props => {
 		isOpen,
 		isComplete,
 		onChange,
-		onKeyPress
+		onKeyPress,
 	} = props;
 	return (
 		<div className={`${type}-item item`}>

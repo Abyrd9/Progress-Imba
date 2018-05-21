@@ -4,6 +4,7 @@ import Block from './common/Block';
 import ItemCreator from './common/ItemCreator';
 import Container from './common/Container';
 import Item from './common/Item';
+import PopUp from './common/PopUp';
 
 class SubgoalBlock extends Component {
 	constructor(props) {
@@ -28,7 +29,8 @@ class SubgoalBlock extends Component {
 			isOpen,
 			isComplete,
 			subgoals,
-			goalChange
+			goalChange,
+			modalVisible
 		} = this.props;
 
 		const cleanUpText = e => {
@@ -53,6 +55,13 @@ class SubgoalBlock extends Component {
 		return (
 			<Block type="subgoal">
 				<Container type="subgoal">
+					{modalVisible && (
+						<PopUp
+							alert="Are you sure you want to delete this goal?"
+							yesClick={() => goalChange('delete', null, goalkey)}
+							noClick={() => goalChange('modalVisible', false, goalkey)}
+						/>
+					)}
 					<Item
 							goalkey={goalkey}
 							type={type}

@@ -42,18 +42,22 @@ class GoalBlock extends Component {
 		}
 
 		const goalChange = (keyToChange, value, goalKey) => {
-			const newText = value.replace(/\n/g, '');
 			this.setState(
 				produce(draft => {
 					draft.activeGoals.forEach((goal, index) => {
 						if (goal.key === goalKey) {
 							switch(keyToChange) {
 								case 'value':
+									const newText = value.replace(/\n/g, '');
 									if (value === '') {
-										draft.activeGoals.splice(index, 1);
+										goal.modalVisible = !goal.modalVisible;
 									} else {
-										goal[keyToChange] = value;
+										goal[keyToChange] = newText;
 									}
+									break;
+								case 'delete':
+									draft.activeGoals.splice(index, 1);
+									break;
 								default:
 									goal[keyToChange] = value;
 							}
@@ -76,6 +80,7 @@ class GoalBlock extends Component {
 									goalkey={goal.key}
 									isOpen={goal.isOpen}
 									isComplete={goal.isComplete}
+									modalVisible={goal.modalVisible}
 									goalChange={goalChange}
 								/>
 							)
