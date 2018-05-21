@@ -50,7 +50,7 @@ class GoalBlock extends Component {
 								case 'value':
 									const newText = value.replace(/\n/g, '');
 									if (value === '') {
-										goal.modalVisible = !goal.modalVisible;
+										goal.modalVisible = true;
 									} else {
 										goal[keyToChange] = newText;
 									}
