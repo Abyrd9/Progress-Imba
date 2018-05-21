@@ -28,6 +28,7 @@ class SubgoalBlock extends Component {
 			isOpen,
 			isComplete,
 			subgoals,
+			goalChange
 		} = this.props;
 
 		const cleanUpText = e => {
@@ -53,10 +54,12 @@ class SubgoalBlock extends Component {
 			<Block type="subgoal">
 				<Container type="subgoal">
 					<Item
+							goalkey={goalkey}
 							type={type}
 							value={value}
 							isOpen={isOpen}
 							isComplete={isComplete}
+							onChange={goalChange}
 					/>
 					{
 						activeSubgoals.length > 0 && activeSubgoals.map(goal => {

@@ -3,10 +3,13 @@ import AutoSizeInput from '../../util/AutoSizeInput';
 
 const Item = props => {
 	const {
+		goalkey,
 		type,
-		onChange,
-		onKeyPress,
 		value,
+		isOpen,
+		isComplete,
+		onChange,
+		onKeyPress
 	} = props;
 	return (
 		<div className={`${type}-item item`}>
@@ -15,7 +18,7 @@ const Item = props => {
 				defaultHeight={42}
 				className="input"
 				type={type}
-				onChange={onChange}
+				onChange={(e) => onChange('value', e.target.value, goalkey)}
 				onKeyPress={onKeyPress}
 				value={value}
 			/>

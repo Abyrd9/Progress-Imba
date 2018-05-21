@@ -41,6 +41,28 @@ class GoalBlock extends Component {
 			}
 		}
 
+		const goalChange = (keyToChange, value, goalKey) => {
+			const newText = value.replace(/\n/g, '');
+			this.setState(
+				produce(draft => {
+					draft.activeGoals.forEach((goal, index) => {
+						if (goal.key === goalKey) {
+							switch(keyToChange) {
+								case 'value':
+									if (value === '') {
+										draft.activeGoals.splice(index, 1);
+									} else {
+										goal[keyToChange] = value;
+									}
+								default:
+									goal[keyToChange] = value;
+							}
+						}
+ 					});
+				})
+			)
+		}
+
 		return (
 			<Block type="goal">
 				<Container type="goal">
@@ -54,6 +76,7 @@ class GoalBlock extends Component {
 									goalkey={goal.key}
 									isOpen={goal.isOpen}
 									isComplete={goal.isComplete}
+									goalChange={goalChange}
 								/>
 							)
 						})
