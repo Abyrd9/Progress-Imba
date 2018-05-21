@@ -3,7 +3,11 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
-	devtool: 'source-map',
+  devtool: 'source-map',
+  devServer: {
+    inline:true,
+    port: 8008
+  },
   module: {
     rules: [
       {
