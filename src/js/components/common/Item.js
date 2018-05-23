@@ -1,5 +1,8 @@
 import React from 'react';
 import AutoSizeInput from '../../util/AutoSizeInput';
+import { SortableHandle } from 'react-sortable-hoc';
+
+const DragHandle = SortableHandle((props) => <i className={`fas fa-bars ${props.type}-item__icon ${props.type}-item__icon--hamburger item__icon`}></i>)
 
 const Item = props => {
 	const {
@@ -13,7 +16,7 @@ const Item = props => {
 	} = props;
 	return (
 		<div className={`${type}-item item`}>
-			<i className={`fas fa-bars ${type}-item__icon ${type}-item__icon--hamburger item__icon`}></i>
+			<DragHandle type={type}/>
 			<AutoSizeInput
 				defaultHeight={42}
 				className="input"

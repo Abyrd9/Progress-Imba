@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
 import produce from 'immer';
+import { arrayMove } from 'react-sortable-hoc';
+
+import { KeyGen } from '../../util/KeyGen';
+import { ItemObjectCreator } from '../../util/ItemObjectCreator';
 
 export const GoalContext = React.createContext('goal')
 
@@ -59,6 +63,14 @@ export class GoalProvider extends Component {
 			)
 		}
 
+		const onSortEnd = ({oldIndex, newIndex}) => {
+			this.setState(
+				produce(draft => {
+					draft.activeGoals = arrayMove(draft.activeGoals, oldIndex, newIndex)
+				})
+			)
+		};
+
 		return (
 			<GoalContext.Provider value={{
 				creatorValue: this.state.creatorValue,
@@ -66,7 +78,8 @@ export class GoalProvider extends Component {
 				completedGoals: this.state.completedGoals,
 				cleanUpText,
 				createGoal,
-				goalChange
+				goalChange,
+				onSortEnd
 			}}>
 				{this.props.children}
 			</GoalContext.Provider>
