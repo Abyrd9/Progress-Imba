@@ -6,6 +6,7 @@ import Block from './common/Block';
 import ItemCreator from './common/ItemCreator';
 import Container from './common/Container';
 import SubgoalBlock from './SubgoalBlock';
+import CompletedToggle from './common/CompletedToggle';
 
 import { SortableContainer, SortableElement } from 'react-sortable-hoc';
 
@@ -43,8 +44,22 @@ class GoalBlock extends Component {
 						{
 							context => (
 								<React.Fragment>
+									<CompletedToggle
+										type="goal"
+										leftText="Active"
+										rightText="Completed"
+										leftClick={() => context.toggleRender('active')}
+										rightClick={() => context.toggleRender('completed')}
+										activeTab={context.currentTab}
+									/>
 									<Container type="goal">
-										<SortableList goals={context.activeGoals} onSortEnd={context.onSortEnd} useDragHandle={true} />
+										<SortableList
+											goals={
+												context.currentTab === 'completed' ? context.completedGoals : context.activeGoals
+											}
+											onSortEnd={context.onSortEnd}
+											useDragHandle={true}
+										/>
 									</Container>
 									<ItemCreator
 										placeholder="Create a goal..."

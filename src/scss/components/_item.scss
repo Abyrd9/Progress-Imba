@@ -60,3 +60,20 @@
 		}
 	}
 }
+
+.goal-item.complete {
+	.goal-input {
+		color: #D1D1C7;
+	}
+	.goal-item__icon {
+		color: #D1D1C7;
+		&--check {
+			background-color: transparent;
+			color: #D1D1C7;
+		}
+		&--chevron {
+			background-color: transparent;
+			color: #D1D1C7;
+		}
+	}
+}

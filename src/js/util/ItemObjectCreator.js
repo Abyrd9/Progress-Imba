@@ -3,7 +3,6 @@ export const ItemObjectCreator = (type, value, key, subkey, taskkey) => {
 			case "goal":
 					return {
 						key,
-						completedIndex: null,
 						value,
 						isOpen: false,
 						isComplete: false,
@@ -14,7 +13,6 @@ export const ItemObjectCreator = (type, value, key, subkey, taskkey) => {
 					return {
 						key,
 						subkey,
-						completedIndex: null,
 						value,
 						isOpen: false,
 						isComplete: false,
@@ -26,7 +24,6 @@ export const ItemObjectCreator = (type, value, key, subkey, taskkey) => {
 						key,
 						subkey,
 						taskkey,
-						completedIndex: null,
 						value,
 						isOpen: false,
 						isComplete: false,

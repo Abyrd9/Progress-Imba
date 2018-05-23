@@ -1,9 +1,9 @@
 import React from 'react';
 
 const Block = props => {
-	const { type, children } = props;
+	const { type, children, isComplete } = props;
 	return (
-		<div className={`${type}-block block`}>
+		<div className={`${type}-block block ${isComplete && 'complete'}`}>
 			{children}
 		</div>
 	)

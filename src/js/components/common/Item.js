@@ -19,7 +19,7 @@ const Item = props => {
 		onKeyPress,
 	} = props;
 	return (
-		<div className={`${type}-item item`}>
+		<div className={`${type}-item item ${isComplete && 'complete'}`}>
 			<DragHandle type={type}/>
 			<AutoSizeInput
 				defaultHeight={42}
@@ -29,7 +29,10 @@ const Item = props => {
 				onKeyPress={onKeyPress}
 				value={value}
 			/>
-			<i className={`fas fa-check ${type}-item__icon ${type}-item__icon--check item__icon`}></i>
+			<i
+				className={`fas fa-check ${type}-item__icon ${type}-item__icon--check item__icon`}
+				onClick={() => onChange('isComplete', !isComplete, goalkey)}
+			></i>
 			<i className={`fas fa-chevron-up ${type}-item__icon ${type}-item__icon--chevron item__icon`}></i>
 		</div>
 	)

@@ -12,6 +12,7 @@ export class GoalProvider extends Component {
 		super(props);
 		this.state = {
 			creatorValue: '',
+			currentTab: 'active',
 			activeGoals: [],
 			completedGoals: [],
 		}
@@ -30,6 +31,7 @@ export class GoalProvider extends Component {
 				const goal = ItemObjectCreator('goal', value, uniqueKey);
 				this.setState(
 					produce(draft => {
+						draft.currentTab = 'active';
 						draft.activeGoals.push(goal);
 						draft.creatorValue = '';
 					})
@@ -37,10 +39,20 @@ export class GoalProvider extends Component {
 			}
 		}
 
-		const goalChange = (keyToChange, value, goalKey) => {
+		const toggleRender = (value) => {
 			this.setState(
 				produce(draft => {
-					draft.activeGoals.forEach((goal, index) => {
+					draft.currentTab = value;
+				})
+			)
+		}
+
+		const goalChange = (keyToChange, value, goalKey) => {
+			const { currentTab } = this.state;
+			const selectedList = currentTab === 'completed' ? 'completedGoals' : 'activeGoals';
+			this.setState(
+				produce(draft => {
+					draft[selectedList].forEach((goal, index) => {
 						if (goal.key === goalKey) {
 							switch(keyToChange) {
 								case 'value':
@@ -52,8 +64,16 @@ export class GoalProvider extends Component {
 									}
 									break;
 								case 'delete':
-									draft.activeGoals.splice(index, 1);
+									draft[selectedList].splice(index, 1);
 									break;
+								case 'isComplete': {
+
+									draft[selectedList].splice(index, 1);
+									const otherList = selectedList === 'activeGoals' ? 'completedGoals' : 'activeGoals';
+									goal.isComplete = value;
+									draft[otherList].push(goal);
+									break;
+								}
 								default:
 									goal[keyToChange] = value;
 							}
@@ -64,9 +84,11 @@ export class GoalProvider extends Component {
 		}
 
 		const onSortEnd = ({oldIndex, newIndex}) => {
+			const { currentTab } = this.state;
+			const selectedList = currentTab === 'completed' ? 'completedGoals' : 'activeGoals';
 			this.setState(
 				produce(draft => {
-					draft.activeGoals = arrayMove(draft.activeGoals, oldIndex, newIndex)
+					draft[selectedList] = arrayMove(draft[selectedList], oldIndex, newIndex)
 				})
 			)
 		};
@@ -74,10 +96,12 @@ export class GoalProvider extends Component {
 		return (
 			<GoalContext.Provider value={{
 				creatorValue: this.state.creatorValue,
+				currentTab: this.state.currentTab,
 				activeGoals: this.state.activeGoals,
 				completedGoals: this.state.completedGoals,
 				cleanUpText,
 				createGoal,
+				toggleRender,
 				goalChange,
 				onSortEnd
 			}}>

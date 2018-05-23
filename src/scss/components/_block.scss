@@ -18,3 +18,9 @@
 	margin: 20px 0px;
 	width: 100%;
 }
+
+.subgoal-block.complete {
+	background-color: #ebebe0;
+	@include shadow(0);
+	padding: 10px 10px 0px 10px;
+}

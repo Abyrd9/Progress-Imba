@@ -20,7 +20,7 @@ class SubgoalBlock extends Component {
 		} = this.props;
 
 		return (
-			<Block type="subgoal">
+			<Block type="subgoal" isComplete={isComplete}>
 				<Container type="subgoal">
 					<GoalContext.Consumer>
 						{
@@ -46,13 +46,15 @@ class SubgoalBlock extends Component {
 						}
 					</GoalContext.Consumer>
 				</Container>
-				<ItemCreator
-					placeholder="Create a subgoal..."
-					type="subgoal"
-					// value={creatorValue}
-					// onChange={e => cleanUpText(e)}
-					defaultHeight={60}
-				/>
+				{!isComplete && (
+					<ItemCreator
+						placeholder="Create a subgoal..."
+						type="subgoal"
+						// value={creatorValue}
+						// onChange={e => cleanUpText(e)}
+						defaultHeight={60}
+					/>
+				)}
 			</Block>
 		)
 	}
