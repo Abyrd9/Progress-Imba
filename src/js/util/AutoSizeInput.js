@@ -36,7 +36,8 @@ class AutoSizeInput extends Component {
 			placeholder,
 			type,
 			onChange,
-			onKeyPress
+			onKeyPress,
+			disabled
 		} = props;
 
     return (
@@ -51,7 +52,8 @@ class AutoSizeInput extends Component {
           }}
 					onChange={onChange}
 					onKeyPress={onKeyPress}
-          onKeyUp={() => {this.setFilledTextareaHeight(props.defaultHeight)}}
+					onKeyUp={() => {this.setFilledTextareaHeight(props.defaultHeight)}}
+					disabled={disabled}
         />
     );
 	}

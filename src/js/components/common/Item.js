@@ -18,6 +18,9 @@ const Item = props => {
 		onChange,
 		onKeyPress,
 	} = props;
+
+	const completeIcon = isComplete ? 'far fa-caret-circle-up' : 'fas fa-check'
+
 	return (
 		<div className={`${type}-item item ${isComplete && 'complete'}`}>
 			<DragHandle type={type}/>
@@ -28,9 +31,10 @@ const Item = props => {
 				onChange={(e) => onChange('value', e.target.value, goalkey)}
 				onKeyPress={onKeyPress}
 				value={value}
+				disabled={isComplete}
 			/>
 			<i
-				className={`fas fa-check ${type}-item__icon ${type}-item__icon--check item__icon`}
+				className={`${completeIcon} ${type}-item__icon ${type}-item__icon--check item__icon`}
 				onClick={() => onChange('isComplete', !isComplete, goalkey)}
 			></i>
 			<i className={`fas fa-chevron-up ${type}-item__icon ${type}-item__icon--chevron item__icon`}></i>

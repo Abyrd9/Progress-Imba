@@ -1,9 +1,9 @@
 import React from 'react';
 
 const PopUp = props => {
-	const { type, alert, yesClick, noClick } = props;
+	const { type, alert, yesClick, noClick, position } = props;
 	return (
-		<div className={`${type}-popup popup`}>
+		<div className={`${type}-popup popup ${position}`}>
 			<p className={`${type}-popup__alert popup__alert`} >{alert}</p>
       <div className={`${type}-popup__button-container popup__button-container`}>
         <i

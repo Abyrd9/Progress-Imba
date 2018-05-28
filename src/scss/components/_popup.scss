@@ -3,23 +3,10 @@
   padding: 20px;
   padding-bottom: 5px;
   position: absolute;
-  top: calc(100% - 10px);
-  left: 0;
   background-color: $color-white;
   @include shadow(1);
   border-radius: 5px;
   z-index: 9999;
-  &:before {
-    content: '';
-    position: absolute;
-    left: 20px;
-    top: -15px;
-    width: 0; 
-    height: 0; 
-    border-left: 15px solid transparent;
-    border-right: 15px solid transparent;   
-    border-bottom: 15px solid $color-white;
-  }
   &__alert {
     @include font(500, 14px);
     color: $color-blue-dark;
@@ -62,4 +49,51 @@
       @include shadow(0);
     }
   }
+}
+
+.left {
+	&:before {
+    content: '';
+    position: absolute;
+    left: 20px;
+    top: -15px;
+    width: 0; 
+    height: 0; 
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;   
+    border-bottom: 15px solid $color-white;
+  }
+}
+
+.right {
+	&:before {
+    content: '';
+    position: absolute;
+    left: calc(100% - 40px);
+    top: -15px;
+    width: 0; 
+    height: 0; 
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;   
+    border-bottom: 15px solid $color-white;
+  }
+}
+
+.middle {
+		&:before {
+    content: '';
+    position: absolute;
+    left: calc(50% - 15px);
+    top: -15px;
+    width: 0; 
+    height: 0; 
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;   
+    border-bottom: 15px solid $color-white;
+  }
+}
+
+.goal-popup {
+	top: 100%;
+  left: 10px;
 }

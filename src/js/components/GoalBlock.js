@@ -61,14 +61,18 @@ class GoalBlock extends Component {
 											useDragHandle={true}
 										/>
 									</Container>
-									<ItemCreator
-										placeholder="Create a goal..."
-										type="goal"
-										value={context.creatorValue}
-										onChange={e => context.cleanUpText(e)}
-										onKeyPress={e => context.createGoal(e)}
-										defaultHeight={72}
-									/>
+									{
+										context.currentTab === 'active' && (
+											<ItemCreator
+												placeholder="Create a goal..."
+												type="goal"
+												value={context.creatorValue}
+												onChange={e => context.cleanUpText(e)}
+												onKeyPress={e => context.createGoal(e)}
+												defaultHeight={72}
+											/>
+										)
+									}
 								</React.Fragment>
 							)
 						}

@@ -7,6 +7,9 @@
 	&__icon {
 		align-self: flex-start;
 		justify-self: flex-end;
+		&:hover {
+			cursor: pointer;
+		}
 	}
 	.input {
 		border: none;
@@ -36,6 +39,9 @@
 			justify-self: flex-start;
 			font-size: 24px;
 			margin-top: 6px;
+			&:hover {
+				cursor: move;
+			}
 		}
 		&--check {
 			height: 33px;
@@ -70,6 +76,7 @@
 		&--check {
 			background-color: transparent;
 			color: #D1D1C7;
+			font-size: 32px;
 		}
 		&--chevron {
 			background-color: transparent;

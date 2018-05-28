@@ -28,6 +28,8 @@ class SubgoalBlock extends Component {
 								<React.Fragment>
 									{modalVisible && (
 										<PopUp
+											type="goal"
+											position="left"
 											alert="Are you sure you want to delete this goal?"
 											yesClick={() => context.goalChange('delete', null, goalkey)}
 											noClick={() => context.goalChange('modalVisible', false, goalkey)}
