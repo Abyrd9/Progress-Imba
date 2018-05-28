@@ -17,6 +17,7 @@ const Item = props => {
 		isComplete,
 		onChange,
 		onKeyPress,
+		transitionActive
 	} = props;
 
 	const completeIcon = isComplete ? 'far fa-caret-circle-up' : 'fas fa-check'
@@ -37,7 +38,10 @@ const Item = props => {
 				className={`${completeIcon} ${type}-item__icon ${type}-item__icon--check item__icon`}
 				onClick={() => onChange('isComplete', !isComplete, goalkey)}
 			></i>
-			<i className={`fas fa-chevron-up ${type}-item__icon ${type}-item__icon--chevron item__icon`}></i>
+			<i
+				className={`fas fa-chevron-up ${type}-item__icon ${type}-item__icon--chevron item__icon`}
+				onClick={() => {!transitionActive && onChange('isOpen', !isOpen, goalkey)}}
+			></i>
 		</div>
 	)
 }

@@ -7,6 +7,7 @@ import Item from './common/Item';
 import PopUp from './common/PopUp';
 
 import { GoalContext } from './theme/GoalTheme';
+import Dropdown from '../util/Dropdown';
 
 class SubgoalBlock extends Component {
 	render() {
@@ -17,6 +18,7 @@ class SubgoalBlock extends Component {
 			isOpen,
 			isComplete,
 			modalVisible,
+			transitionActive,
 		} = this.props;
 
 		return (
@@ -42,7 +44,16 @@ class SubgoalBlock extends Component {
 											isOpen={isOpen}
 											isComplete={isComplete}
 											onChange={context.goalChange}
+											transitionActive={transitionActive}
 									/>
+									<Dropdown
+										goalkey={goalkey}
+										defaultHeight={66}
+										isOpen={isOpen}
+										transitionToggle={context.goalChange}
+									>
+										<div style={{ height: '500px', width: '100%', backgroundColor: 'blue' }}></div>
+									</Dropdown>
 								</React.Fragment>
 							)
 						}

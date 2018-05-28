@@ -66,14 +66,12 @@ export class GoalProvider extends Component {
 								case 'delete':
 									draft[selectedList].splice(index, 1);
 									break;
-								case 'isComplete': {
-
+								case 'isComplete':
 									draft[selectedList].splice(index, 1);
 									const otherList = selectedList === 'activeGoals' ? 'completedGoals' : 'activeGoals';
 									goal.isComplete = value;
 									draft[otherList].push(goal);
 									break;
-								}
 								default:
 									goal[keyToChange] = value;
 							}

@@ -18,6 +18,7 @@ const SortableItem = SortableElement(({ goal }) => (
 		isOpen={goal.isOpen}
 		isComplete={goal.isComplete}
 		modalVisible={goal.modalVisible}
+		transitionActive={goal.transitionActive}
 	/>
 ));
 
