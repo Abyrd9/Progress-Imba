@@ -1,0 +1,70 @@
+.creator {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	padding: 15px;
+	&__form {
+		position: relative;
+		@include shadow(2);
+		width: 100%;
+		max-width: 400px;
+		display: flex;
+	}
+	.autosize-container {
+		@include depth(top);
+	}
+	&__input {
+		padding: 20px 5px 8px 12px;
+		@include font(700, 18px);
+		color: $color-black;
+		background-color: transparent;
+		border: none;
+		width: 100%;
+		min-height: 57px;
+		&:active, &:focus {
+			border: none;
+			outline: none;
+		}
+	}
+	&__placeholder {
+		@include font(700, 18px);
+		color: $color-gray;
+		position: absolute;
+		top: 19.5px;
+		left: 12px;
+		opacity: 0;
+		@include animation(opacity, .2s)
+	}
+	&__placeholder.visible {
+		opacity: 1;
+	}
+	&__button {
+		border: none;
+		outline: none;
+		@include animation(all, .2s);
+		padding: 0px 10px;
+		&__icon {
+			font-size: 16px;
+			color: $color-white;
+		}
+		&:active, &:focus {
+			border: none;
+			outline: none;
+		}
+		&:disabled {
+			background-color: transparent;
+			i {
+				color: $color-gray;
+			}
+		}
+	}
+	&__button-goal {
+		background-color: $color-yellow;
+	}
+	&__button-subgoal {
+		background-color: $color-blue;
+	}
+	&__button-task {
+		background-color: $color-green;
+	}
+}

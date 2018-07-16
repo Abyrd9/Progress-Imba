@@ -1,0 +1,54 @@
+.element {
+	width: 100%;
+	max-width: 400px;
+	&__item {
+		width: 97%;
+		padding: 15px;
+		display: flex;
+		align-items: center;
+		position: relative;
+		@include shadow(2);
+		&__icon {
+			font-size: 16px;
+		}
+		&__icon:nth-of-type(2) {
+			position: absolute;
+			left: calc(100% - 18px);
+			font-size: 14px;
+			width: 30px;
+			height: 30px;
+			color: $color-white;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			border-radius: 100%;
+		}
+		&__icon-goal:nth-of-type(2) {
+			background-color: $color-yellow;
+		}
+		&__icon-subgoal:nth-of-type(2) {
+			background-color: $color-blue;
+		}
+		&__icon-task:nth-of-type(2) {
+			background-color: $color-green;
+		}
+		&__icon-goal {
+			color: $color-yellow;
+			font-size: 18px;
+		}
+		&__icon-subgoal {
+			color: $color-blue;
+			font-size: 18px;
+		}
+		&__icon-task {
+			color: $color-green;
+			font-size: 18px;
+		}
+		&__goal-text {
+			width: 100%;
+			padding: 0px 15px 0px 8px;
+			@include font(600, 18px);
+			color: $color-black;
+		}
+	}
+}

@@ -1,0 +1,14 @@
+@import './partials/fonts';
+@import './partials/global';
+@import './partials/colors';
+@import './partials/breakpoints';
+@import './partials/depth';
+@import './partials/animation';
+@import './partials/shadow';
+
+//modules
+@import './modules/autosize-input';
+@import './modules/creator';
+@import './modules/header';
+@import './modules/page';
+@import './modules/element';

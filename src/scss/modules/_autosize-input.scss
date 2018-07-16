@@ -1,0 +1,21 @@
+.autosize-container {
+	position: relative;
+	width: 100%;
+	height: auto;
+	&__input, &__ghost {
+		box-sizing: border-box;
+		width: 100%;
+		overflow: hidden;
+		resize: none;
+		border: none;
+		outline: none;
+	}
+	&__ghost {
+		position: absolute;
+		top: 0;
+		display: block;
+		white-space: pre-wrap;
+		word-wrap: break-word;
+		visibility: hidden;
+	}
+}
