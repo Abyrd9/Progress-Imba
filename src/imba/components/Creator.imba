@@ -1,12 +1,10 @@
 import '../../style.scss'
 import {KeyGen} from '../utils/KeyGen'
+import AutoSizeInput from './AutoSizeInput'
 
 export tag Creator
 	prop subitems default: []
 	prop paramkey
-
-	def mount
-		data:creator:ghost = @dom:getElementsByClassName('autosize-container__ghost')[0]
 
 	def addElement e
 		# Create new item
@@ -54,32 +52,10 @@ export tag Creator
 		data:creator:hasText = false
 		data:creator:height = 48
 
-	def autoSize
-		var elementHeight = data:creator:ghost:clientHeight
-		if elementHeight >= 48
-			data:creator:height = elementHeight
-
-	def valueChange event
-		if event.target.value != ''
-			data:creator:hasText = true;
-			data:creator:value = event.target.value
-			autoSize(event.native:srcElement:nextSibling)
-		else
-			data:creator:hasText = false;
-			data:creator:value = event.target.value
-
 	def render
 		<self.creator>
 			<form.creator__form :submit.prevent.addElement>
-				<div.autosize-container>
-					<textarea
-						[data:creator:value]
-						:keyup.valueChange
-						:input.valueChange
-						.autosize-container__input .creator__input
-						css:height=data:creator:height
-					>
-					<div.autosize-container__ghost .creator__input> "{data:creator:value}"
+				<AutoSizeInput[data:creator]>
 				<p.creator__placeholder .visible=!data:creator:hasText> "create new {data:type}..."
 				<button.creator__button .{"creator__button-" + data:type} disabled=!data:creator:hasText>
 					<i.fas .fa-plus-circle .creator__button__icon>
