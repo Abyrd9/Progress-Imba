@@ -1,0 +1,134 @@
+.title {
+	width: 100%;
+	height: auto;
+	max-width: 400px;
+	margin: 15px;
+	display: flex;
+	position: relative;
+	align-items: center;
+	justify-content: space-between;
+	border-bottom: 1px solid $color-gray;
+	&__popup {
+		position: absolute;
+		height: auto;
+		top: 0;
+		left: 0;
+		width: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: space-evenly;
+		@include shadow(2);
+		background-color: $color-white;
+		@include depth(top);
+		visibility: hidden;
+		.autosize-container {
+			@include depth(top);
+			&__input, &__ghost {
+				padding: 15px;
+				@include font(700, 20px);
+				color: $color-black;
+				background-color: transparent;
+				border: none;
+				width: 100%;
+				min-height: 57px;
+				&:active, &:focus {
+					border: none;
+					outline: none;
+				}
+			}
+		}
+		&__input {
+			width: 100%;
+			height: 100%;
+		}
+		&__icon-container {
+			display: flex;
+			@include shadow(2);
+			position: absolute;
+			top: 100%;
+			right: 0;
+		}
+		&__icon {
+			width: 80px;
+			height: 40px;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			color: $color-white;
+			&:nth-of-type(1) {
+				background-color: #EF476F;
+			}
+			&:nth-of-type(2) {
+				background-color: #06D6A0;
+			}
+		}
+		&__visible {
+			visibility: visible;
+		}
+		&__button-container {
+			width: 100%;
+			display: flex;
+			justify-content: space-evenly;
+			padding: 15px;
+		}
+		&__button {
+			border: none;
+			outline: none;
+			@include font(600, 16px);
+			padding: 5px 25px;
+			color: $color-white;
+			@include shadow(1);
+			&:nth-of-type(1) {
+				background-color: #EF476F;
+			}
+			&:nth-of-type(2) {
+				background-color: #06D6A0;
+			}
+		}
+	}
+	&__title-text {
+		@include font(700, 20px);
+		color: $color-black;
+		padding: 15px;
+	}
+	&__icon {
+		font-size: 20px;
+		position: relative;
+		margin-left: 40px;
+		padding: 15px;
+		&__goal {
+			color: $color-yellow;
+		}
+		&__subgoal {
+			color: $color-blue;
+		}
+		&__task {
+			color: $color-green;
+		}
+	}
+	&__menu-popup {
+		position: absolute;
+		top: -20px;
+		left: -40px;
+		background-color: $color-white;
+		@include shadow(2);
+		@include depth(top);
+		padding: 10px;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		align-items: stretch;
+		height: 80px;
+		opacity: 0;
+		transform: translateX(20px);
+		visibility: hidden;
+		$ease: cubic-bezier(.2, 0, .5, 1);
+		transition: opacity .2s $ease, transform .2s $ease, visibility 0s linear .3s;
+		&__visible {
+			opacity: 1;
+			transform: translateX(0);
+			visibility: visible;
+			transition: visibility 0s linear, opacity .2s $ease, transform .2s $ease;
+		}
+	}
+}

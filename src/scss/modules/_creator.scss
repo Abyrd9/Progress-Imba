@@ -2,28 +2,24 @@
 	width: 100%;
 	display: flex;
 	justify-content: center;
-	padding: 15px;
-	&__form {
-		position: relative;
-		@include shadow(2);
-		width: 100%;
-		max-width: 400px;
-		display: flex;
-	}
+	position: relative;
+	@include shadow(2);
+	max-width: 400px;
+	margin: 15px;
 	.autosize-container {
 		@include depth(top);
-	}
-	&__input {
-		padding: 20px 5px 8px 12px;
-		@include font(700, 18px);
-		color: $color-black;
-		background-color: transparent;
-		border: none;
-		width: 100%;
-		min-height: 57px;
-		&:active, &:focus {
+		&__input, &__ghost {
+			padding: 20px 5px 8px 12px;
+			@include font(700, 18px);
+			color: $color-black;
+			background-color: transparent;
 			border: none;
-			outline: none;
+			width: 100%;
+			min-height: 57px;
+			&:active, &:focus {
+				border: none;
+				outline: none;
+			}
 		}
 	}
 	&__placeholder {

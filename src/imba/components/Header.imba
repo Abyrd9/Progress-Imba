@@ -2,21 +2,19 @@ import '../../style.scss'
 
 export tag Header
 	prop type
-	prop hasbackbutton
-	prop urlhistory default: []
+	prop backbutton
+	prop url
 
 	def changeRoute
-		var url
 		if type != 'task'
-			url = '/'
+			router.go('/')
 		else
-			url = urlhistory[urlhistory:length - 1]
-		router.go(url)
+			router.go(url)
 
 	def render
 		<self.header .{"header-" + type}>
 			<h1.header__title> "Make Progress,"
 			<p.header__subtitle> "check your "
 				<span> "{type}s."
-			if hasbackbutton
+			if backbutton
 				<i.fas .fa-arrow-left .header__back-button :tap.self.changeRoute>

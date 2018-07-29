@@ -1,28 +1,35 @@
 export tag AutoSizeInput
+	prop initheight
+	prop classname
+
+	def setup
+		@ghost = null
+		@height = initheight
+
 	def mount
-		data:ghost = @dom:getElementsByClassName('autosize-container__ghost')[0]
+		@ghost = @dom:getElementsByClassName('autosize-container__ghost')[0]
 
 	def autoSize
-		var elementHeight = data:ghost:clientHeight
-		if elementHeight >= 48
-			data:height = elementHeight
+		var elementHeight = @ghost:clientHeight
+		if elementHeight >= initheight
+			@height = elementHeight
+		self
 
 	def valueChange event
 		if event.target.value != ''
-			data:hasText = true;
 			data:value = event.target.value
 			autoSize(event.native:srcElement:nextSibling)
 		else
-			data:hasText = false;
 			data:value = event.target.value
+		self
 
 	def render
-		<self.autosize-container>
+		<self.autosize-container .{classname}>
 			<textarea
 				[data:value]
 				:keyup.valueChange
 				:input.valueChange
-				.autosize-container__input .creator__input
-				css:height=data:height
+				.autosize-container__input
+				css:height=@height
 			>
-			<div.autosize-container__ghost .creator__input> data:value
+			<div.autosize-container__ghost> data:value
