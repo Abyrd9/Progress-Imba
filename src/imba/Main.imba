@@ -4,6 +4,7 @@ import Header from './components/Header'
 import Creator from './components/Creator'
 import Element from './components/Element'
 import Title from './components/Title'
+import Auth from './components/Auth';
 
 tag Anotherpage
 	prop type
@@ -40,6 +41,7 @@ var store = ProgressStore.new
 export tag Main
 	def render
 		<self>
-			<Anotherpage[store] type='goal' route='/'>
-			<Anotherpage[store] type='subgoal' route='/goal/:key'>
-			<Anotherpage[store] type='task' route='/subgoal/:key'>
+			<Auth title="Sign In" subtitle="Hello There! Welcome Back to Progress.">
+			# <Anotherpage[store] type='goal' route='/'>
+			# <Anotherpage[store] type='subgoal' route='/goal/:key'>
+			# <Anotherpage[store] type='task' route='/subgoal/:key'>
